@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var username = User.Identity.Name;
+    username = username.Substring(username.LastIndexOf(@"\", StringComparison.OrdinalIgnoreCase) + 1);
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -24,6 +28,8 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Profiles", "List", "Profile")</li>
+                    <li>@Html.ActionLink("My Profile", "Edit", "Profile", new RouteValueDictionary(new{ id = username }), null)</li>
                 </ul>
             </div>
         </div>

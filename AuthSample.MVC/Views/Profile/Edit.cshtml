@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md-8">
-        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+        @using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { @class = "form-horizontal" }))
         {
             <fieldset>
 
@@ -17,16 +17,16 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="FirstName">@Html.LabelFor(m => m.FirstName)</label>
                     <div class="col-md-4">
-                        @Html.TextBoxFor(m => m.FirstName, new { placeholder = "First Name", @class = "form-control input-md" })
+                        @Html.TextBoxFor(m => m.FirstName, new {placeholder = "First Name", @class = "form-control input-md"})
                         <span class="help-block">Enter your first name</span>
                     </div>
                 </div>
 
                 <!-- Text input-->
                 <div class="form-group">
-                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-4 control-label" })
+                    @Html.LabelFor(m => m.LastName, new {@class = "col-md-4 control-label"})
                     <div class="col-md-4">
-                        @Html.TextBoxFor(m => m.LastName, new { placeholder = "Last Name", @class = "form-control input-md" })
+                        @Html.TextBoxFor(m => m.LastName, new {placeholder = "Last Name", @class = "form-control input-md"})
                         <span class="help-block">Enter your last name</span>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="Awesomeness">Awesomeness</label>
                     <div class="col-md-4">
-                        @Html.DropDownListFor(m => m.Awesomeness, Model.AwesomenessOptions, new { @class = "form-control" })
+                        @Html.DropDownListFor(m => m.Awesomeness, Model.AwesomenessOptions, new {@class = "form-control"})
                     </div>
                 </div>
 
@@ -47,6 +47,7 @@
                     </div>
                 </div>
             </fieldset>
+            @Html.HiddenFor(m => m.UserName)
         }
     </div>
 </div>

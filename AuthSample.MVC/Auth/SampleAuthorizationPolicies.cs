@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Thinktecture.IdentityModel.Owin.ResourceAuthorization;
 
@@ -44,7 +45,9 @@ namespace AuthSample.MVC.Auth
         private Task<bool> CheckProfileEditAccessAsync(ResourceAuthorizationContext context)
         {
             var profileUser = context.Resource.Skip(1).Take(1).Single().Value;
-            return Eval(profileUser == context.Principal.Identity.Name);
+            var username = context.Principal.Identity.Name;
+            username = username.Substring(username.LastIndexOf(@"\", StringComparison.OrdinalIgnoreCase) + 1);
+            return Eval(profileUser == username);
         }
     }
 }
