@@ -34,7 +34,7 @@ namespace AuthSample.MVC.Auth
             switch (action)
             {
                 case SampleResources.ProfileActions.List:
-                    return Eval(context.Principal.IsInRole("Admin"));
+                    return Eval(context.Principal.IsInRole("Canpotex - Admin"));
                 case SampleResources.ProfileActions.Edit:
                     return CheckProfileEditAccessAsync(context);
             }
