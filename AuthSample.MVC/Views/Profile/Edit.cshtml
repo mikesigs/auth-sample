@@ -1,0 +1,52 @@
+﻿@model AuthSample.MVC.Models.Profile
+
+@{
+    ViewBag.Title = "title";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Form Name</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="FirstName">@Html.LabelFor(m => m.FirstName)</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.FirstName, new { placeholder = "First Name", @class = "form-control input-md" })
+                        <span class="help-block">Enter your first name</span>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.LastName, new { placeholder = "Last Name", @class = "form-control input-md" })
+                        <span class="help-block">Enter your last name</span>
+                    </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Awesomeness">Awesomeness</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => m.Awesomeness, Model.AwesomenessOptions, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="submit">Submit</label>
+                    <div class="col-md-4">
+                        <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>

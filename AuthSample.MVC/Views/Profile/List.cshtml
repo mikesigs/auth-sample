@@ -1,0 +1,12 @@
+﻿@model IEnumerable<AuthSample.MVC.Models.Profile>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<ul class="list-group">
+    @foreach (var profile in Model)
+    {
+        <li class="list-group-item">@profile.FirstName @profile.LastName (<span class="text-muted">@profile.UserName</span>)<span class="badge">@profile.Awesomeness</span></li>
+    }
+</ul>
